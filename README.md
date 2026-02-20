@@ -33,25 +33,64 @@ We aim to provide a **non-audio, tactile AI-based solution**.
 
 ---
 
-## 🚀 Core Features
+## 🚀 Building it (System Pipeline)
 
-### 1️⃣ Find Mode (AI Object Search)
+# AccessAIthon 2026 – Mobile App Version
 
-User says e.g. "Find my glass cup"
+## Step-by-Step Project Workflow
+
+1. Decided to scrap the Arduino glove idea and turn it into a mobile app.  
+2. The user opens the app on their phone.  
+3. The app is ready to listen for a keyword.  
+4. The user says a keyword; a musical note plays to demonstrate the app is listening.  
+5. The user says "find my ..." into the phone mic.  
+6. The app captures audio input from the microphone.  
+7. Audio is processed in real-time using **Whisper AI (OpenAI)**.  
+8. Speech is converted into text as the user speaks.  
+9. The text is interpreted to extract the target object.  
+10. The app activates the camera to see the surrounding environment.  
+11. The live camera feed is displayed on the screen.  
+12. The app uses **YOLOv8** to detect objects in the camera feed.  
+13. Bounding boxes appear around all detected objects.  
+14. The target object is highlighted differently (e.g., brighter color).  
+15. The app estimates distance based on bounding box size.  
+16. The screen shows approximate distances from the user to the target object.  
+17. Haptic feedback is activated using the phone’s vibration motor.  
+18. Vibration intensity increases as the user gets closer to the target.  
+19. Different vibration patterns are used for different object categories.  
+20. For example: person = double pulse, wall = continuous vibration, furniture = slow pulse.  
+21. The vibration system mimics the tactile language originally planned for the glove.  
+22. Optional: The user can select objects from a list for more precise detection.  
+23. Optional: Audio feedback can be added for visual confirmation.  
+24. The app backend uses **Python** for AI inference (YOLOv8 + Whisper).  
+25. Real-time AI processing is enabled with **TensorFlow Lite** or **ONNX Runtime Mobile**.  
+26. The app avoids additional hardware—everything runs on the phone.  
+27. Users can interact with the app hands-free after giving a voice command.  
+28. The haptic system is designed to be intuitive for visually impaired users.  
+29. The live feed helps users understand AI decisions visually.  
+30. The software pipeline is: **Voice Input → Whisper AI → Object Detection → Distance Estimation → Vibration Output**.  
+31. Bounding boxes are updated in real-time to maintain continuous guidance.  
+32. The system uses **Flutter** for cross-platform mobile deployment (Android/iOS).  
+33. **Vibration / Haptic APIs** provide tactile feedback on the phone.  
+34. **Shravan** handles distance estimation and vibration mapping.  
+35. **Neslihan** manages camera integration, object detection logic, bounding box drawing, and real-time visual feedback.  
+36. **Ishir** handles app integration, AI intercommunication, and overall project coordination.  
+37. Voice-to-text conversion uses **OpenAI Whisper models** for accuracy.  
+38. Object detection uses **YOLOv8 lightweight models** for mobile performance.  
+39. The app UI shows bounding boxes, distances, and detection confidence.  
+40. Users can test the app anywhere using just a phone.  
+41. The system can detect multiple objects at once.  
+42. Users receive continuous haptic feedback as they move closer or further from the target.  
+43. The prototype is designed to be completed in 2 days.  
+44. The app can be extended later for indoor navigation or multi-modal feedback.  
+45. The system supports optional **speech command customization**.  
+46. Audio cues (musical notes) confirm user input during voice commands.  
+47. Real-time camera feed ensures accurate target detection.  
+48. Haptic intensity is mapped dynamically using bounding box size.  
+49. The app uses a **Python + mobile integration pipeline** for fast prototyping.  
+50. The final prototype demonstrates a working **Vision-to-Touch Mobile App** that replaces the original glove, using phone haptics to guide visually impaired users.
 
 
-System pipeline:
-
-1. Speech-to-text processes voice command  
-2. Target object class is extracted  
-3. YOLOv8 object detection runs on live camera feed  
-4. The closest matching object is selected  
-5. Distance is approximated via bounding box size  
-6. Vibration intensity increases as user approaches the object  
-
-This allows the user to scan their surroundings and physically feel proximity to their requested object.
-
----
 
 ### 2️⃣ Tactile Language System
 
@@ -96,27 +135,7 @@ This creates a consistent, learnable tactile vocabulary.
 
 ### Components
 
-- USB Camera
-- Arduino (Uno/Nano)
-- 4–5 vibration motors
-- NPN transistors (motor control)
-- External power source
-- Wearable glove platform
-
-### Communication Flow
-
-Python (AI inference)
-↓
-Serial (USB)
-↓
-Arduino firmware
-↓
-PWM motor control
-↓
-Vibration feedback
-
-
----
+- Phone
 
 ## 🏗️ System Architecture
 
@@ -135,32 +154,6 @@ Distance Estimation
 Serial Communication
 ↓
 Haptic Output (Glove)
-
-
----
-
-## 👥 Team Roles
-
-### 🤖 AI / ML Lead
-- Object detection integration
-- Speech-to-text pipeline
-- Detection filtering logic
-- Serial communication protocol
-- System integration
-
-### ⚡ Electrical Engineering Lead
-- Glove hardware design
-- Motor driver circuitry
-- Arduino firmware
-- PWM vibration control
-- Physical assembly
-
-### 📐 Maths / Systems Lead
-- Distance normalization model
-- Detection prioritization logic
-- Haptic pattern design
-- Testing & evaluation
-- Ethical and accessibility framing
 
 ---
 
@@ -228,7 +221,5 @@ To demonstrate that computer vision can be transformed into tactile feedback, of
 
 - Python  
 - YOLOv8 (Ultralytics)  
-- Whisper (speech-to-text)  
-- Arduino (C++)  
-- Serial communication  
-- PWM motor control  
+- Whisper (speech-to-text)
+- Python ML libraries.
