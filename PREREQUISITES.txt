@@ -1,0 +1,41 @@
+This file contains a series of 16 instructions to install and use Whisper AI (openai)
+DISCLAIMER !! : All of this works on Windows. If you use mac then you're a gay donkey, you support Benjamin Netanyahu and the state of Isreal.
+
+1. Download python v.3.10.10 (https://www.python.org/downloads/release/python-31010/)
+
+2. Open VsCode
+
+3. Open a new terminal
+
+4. cd to Desktop
+
+5. Run the following line in your terminal :
+>> git clone https://github.com/AccessAIthon2026/STT.git Hackathons\AccessAIthon2026
+
+6. cd to the AccessAIthon2026 folder
+
+7. Run the following line(s) in your terminal :
+>> python -m venv venv
+>> venv\Scripts\activate
+
+8. You should see    (venv) C:\Users\...\Hackathons\AccessAIthon2026 >>    in the terminal now.
+
+9. Run the following line in your terminal :
+>> pip3 install torch torchvision
+
+10. Wait for it to finish
+
+11. Run Windows Powershell as administrator
+
+12. Run the following line in powershell :
+>> Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+13. Once finished, stay on powershell
+
+14. Run the following line in the terminal
+>> choco install ffmpeg
+
+15. Go back to your VsCode terminal
+
+16. Run the following line in the terminal
+>> pip install -U openai-whisper
