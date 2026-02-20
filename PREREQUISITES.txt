@@ -39,3 +39,6 @@ DISCLAIMER !! : All of this works on Windows. If you use mac then you're a gay d
 
 16. Run the following line in the terminal
 >> pip install -U openai-whisper
+
+17. Run the following line in the terminal
+>> pip install sounddevice
