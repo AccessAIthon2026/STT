@@ -1,5 +1,6 @@
 import sounddevice as sd
 import numpy as np
+
 import whisper
 
 # Load Whisper model
@@ -9,7 +10,7 @@ SAMPLE_RATE = 16000
 DURATION = 4  # seconds per recording chunk
 
 def record_audio():
-    print("Listening...")
+    print("Listening...")                          # duration * samplerate = total samples
     audio = sd.rec(int(DURATION * SAMPLE_RATE),
                    samplerate=SAMPLE_RATE,
                    channels=1,
